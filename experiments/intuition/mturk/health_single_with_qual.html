@@ -1,0 +1,669 @@
+<!-- HIT START -->
+<div id="hit" class="container">
+    <!-- ACCORDION START -->
+    <div class="col-12 accordion" id="hitinfo">
+        <!-- INSTRUCTIONS START -->
+        <div class="card">
+            <div class="card-header" id="instructionsHeading">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#instructions" aria-expanded="true" aria-controls="instructions">
+                        Instructions (click to expand)
+                    </button>
+                </h5>
+            </div>
+            <div class="collapse show" id="instructions" aria-labelledby="instructionsHeading" data-parent="#hitinfo">
+                <div class="card-body">
+                    <p>Thanks for participating in this HIT!</p>
+
+                    <p>This HIT has two parts: a <strong>qualification</strong> and a <strong>survey</strong>. If you score high enough on the qualification, you'll be allowed to complete the survey (and will be paid double for it).</p>
+
+                    <p>You may only answer one HIT.</p>
+
+                    <div class="mt-4 mb-2 font-weight-bold">QUALIFICATION DESCRIPTION:</div>
+
+                    <p>Your answers will be compared to our ground truth answers.</p>
+
+                    <p>In this task we assess how well you can read different charts. If you don't have much experience reading graphs and charts, that's fine.  We'll explain everything you need to know in the instructions.</p>
+
+                    <p>If you show that you can read these charts correctly, you'll be able to complete the next task!</p>
+
+                    <p>These charts will show you the numeric outcomes on a few proposals for  a few groups.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MTURK INPUT START -->
+        <form name='mturk_form' method='post' id='mturk_form' action='https://www.mturk.com/mturk/externalSubmit'>
+            <input type='hidden' value='' name='assignmentId' id='assignmentId'>
+            <input type='hidden' name='tm' id='tm'>
+            <!-- TODO: add values for the responses above... -->
+            <div class="card">
+                <div class="card-header" id="qualificationHeading">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#qualification" aria-expanded="true" aria-controls="qualification">
+                            Qualification Task
+                        </button>
+                    </h5>
+                </div>
+                <div class="collapse show" id="qualification" aria-labelledby="qualificationHeading" data-parent="#hitinfo">
+                    <div class="card-body">
+                        <div class="">
+                            <div class="mt-4 mb-2 font-weight-bold">Stacked Bar Charts:</div>
+                            <p>The first kind of chart is a stacked bar chart. In this chart, the groups drawn (e.g. group "A" and group "B") appear on the horizontal (x) -axis. The height of the bars (on the vertical, y, -axis) show the outcome for each group for each proposal (e.g. <span class="font-weight-bold" style="color : #1f77b4;">one</span> and <span class="font-weight-bold" style="color : #ff7f0e;">two</span>).</p>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">Stacked-1</span></span>
+                                </div>
+                            </div>
+                            <div id="question-stacked-1" class="offset-1 col-11 pt-4 row">
+                                <div id="area-2" class="area-chart col-lg-8 col-md-12">
+                                    <p>This chart shows two groups ("A" and "B") and one proposal (<span class="font-weight-bold" style="color : #1f77b4;">one</span>). Group "A" has an outcome of 20 for the proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> and group "B" has an outcome of 10 for the proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span>.</p>
+                                </div>
+                                <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the groups shown in the chart has highest outcome for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span>?</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-1" id="q_question-stacked-1_option_one" value="A" required="">
+                                            <label><span class="font-weight-bold">A</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-1" id="q_question-stacked-1_option_two" value="B" required="">
+                                            <label><span class="font-weight-bold">B</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-1" id="q_question-stacked-1_option_three" value="C" required="">
+                                            <label><span class="font-weight-bold">C</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-1" id="q_question-stacked-1_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">Stacked-2</span></span>
+                                </div>
+                            </div>
+                            <div id="question-stacked-2" class="offset-1 col-11 pt-4 row">
+                                <div id="area-3" class="area-chart col-lg-8 col-md-12">
+                                    <p>This chart shows two groups ("A" and "B") and two proposals (<span class="font-weight-bold" style="color : #1f77b4;">one</span> and <span class="font-weight-bold" style="color : #ff7f0e;">two</span>). Group "A" has an outcome of 20 for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> and and outcome of 0 for <span class="font-weight-bold" style="color : #ff7f0e;">two</span>. Group "B" has an outcome of 0 for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> and an outcome of 10 for proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span>.</p>
+                                    <p>If a group has an outcome of zero for a proposal it won't show up in the chart (e.g. <span class="font-weight-bold" style="color : #1f77b4;">one</span> for group "B").</p>
+                                </div>
+                                <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart has the highest outcome for group "A"?</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-2" id="q_question-stacked-2_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-2" id="q_question-stacked-2_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-2" id="q_question-stacked-2_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-2" id="q_question-stacked-2_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">Stacked-3</span></span>
+                                </div>
+                            </div>
+                            <div id="question-stacked-3" class="offset-1 col-11 pt-4 row">
+                                <div id="area-4" class="area-chart col-lg-8 col-md-12">
+                                    <p>This is like <a href="#area-3">stacked-2</a>, but now each group also has an outcome of 5 for the other proposal (and the y-axis now ranges from 0-25).</p>
+                                </div>
+                                 <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart has the highest outcome for group "B"?</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-3" id="q_question-stacked-3_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-3" id="q_question-stacked-3_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-3" id="q_question-stacked-3_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-3" id="q_question-stacked-3_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mt-4 mb-2 font-weight-bold">Different sized groups:</div>
+                            <p>Now, we'll add the final element to the charts. In these charts, the width of the bars will change depending on the size of the group. Larger groups will have wider bars and smaller groups will have thinner ones.</p>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">Stacked-4</span></span>
+                                </div>
+                            </div>
+                            <div id="question-stacked-4" class="offset-1 col-11 pt-4 row">
+                                <div id="area-5" class="area-chart col-lg-8 col-md-12">
+                                    <p>This is like <a href="#area-3">stacked-2</a> but now the proportions of the groups have changed. Group "A" is now twice as big as group "B", occupying 66% of the total as opposed to 50% in <a href="#area-3">stacked-2</a>.</p>
+                                </div>
+                                 <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which is the smallest group?</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-4" id="q_question-stacked-4_option_one" value="A" required="">
+                                            <label><span class="font-weight-bold">A</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-4" id="q_question-stacked-4_option_two" value="B" required="">
+                                            <label><span class="font-weight-bold" >B</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-4" id="q_question-stacked-4_option_three" value="C" required="">
+                                            <label><span class="font-weight-bold">C</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-4" id="q_question-stacked-4_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">Stacked-5</span></span>
+                                </div>
+                            </div>
+                            <div id="question-stacked-5" class="offset-1 col-11 pt-4 row">
+                                <div id="area-6" class="area-chart col-lg-8 col-md-12">
+                                    <p>This is a combination of examples <a href="#area-4">stacked-3</a> and <a href="#area-5">stacked-4</a>. Notice how the sizes of the stacked bars change based on the change in proportion of the groups.</p>
+                                </div>
+                                 <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart takes up the largest total <strong>area</strong>?</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-5" id="q_question-stacked-5_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-5" id="q_question-stacked-5_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-5" id="q_question-stacked-5_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-5" id="q_question-stacked-5_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">Stacked-6</span></span>
+                                </div>
+                            </div>
+                            <div id="question-stacked-6" class="offset-1 col-11 pt-4 row">
+                                <div class="row col-12">
+                                    <div class="col-md-12 col-lg-4 ">
+                                        <div>
+                                            <p>In this scenario, there are 3 groups:</p>
+                                            <ul>
+                                                <li>group "A" with <strong>30</strong> people in it, </li>
+                                                <li>group "B" with <strong>10</strong> people in it, </li>
+                                                <li>and group "C" with <strong>20</strong> people in it.</li>
+                                            </ul>
+                                            <p>There are 3 proposals.</p>
+                                            <ul>
+                                                <li>proposal <span class="font-weight-bold" style="color : #1f77b4">one</span> with an outcome of 1000 for group "A", 1000 for group "B", and 1000 for group "C".</li>
+                                                <li>proposal <span class="font-weight-bold" style="color : #ff7f0e">two</span> with an outcome of 1 for group "A", 1 for group "B", and 1 for group "C".</li>
+                                                <li>proposal <span class="font-weight-bold" style="color : #2ca02c">three</span> with an outcome of 1 for group "A", 1 for group "B", and 10000 for group "C".</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="area-9" class="area-chart col-lg-8 col-md-12">
+                                    </div>
+                                </div>
+                                 <div class="col-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart takes up the largest total <strong>area</strong>?</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-6" id="q_question-stacked-6_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-6" id="q_question-stacked-6_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-6" id="q_question-stacked-6_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-stacked-6" id="q_question-stacked-6_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mt-4 mb-2 font-weight-bold">3D Bar Charts:</div>
+                            <p>Now we'll show you some 3D bar charts.</p>
+                            <p>Each dimension of these charts (the x, y, or z axes) measures the outcomes for a different group. While the stacked bar charts show percentage on the horizontal (x) -axis and outcome on the vertical (y) -axis, the 3D bar charts show the outcome for the first group on the horizontal (x) -axis, the outcome for the second group on the vertical (y) -axis, and the outcome for the third group on the depth (z) -axis. </p>
+                            <p>In the 3D bar charts, each bar (or cube) is a different proposal where its dimensions are determined by the outcome for each group for that proposal.</p>
+                            <p><span class="badge badge-warning">TIP</span> Click and drag to view the 3D charts from different angles.</p>
+                            <p><span class="badge badge-warning">TIP</span> The axes of the 3D bar charts are not the same as the axes of the stacked bar charts.</p>
+                            <p><span class="badge badge-warning">TIP</span> In stacked bar charts each proposal is spread across multiple bars with the same color, but in 3D bar charts each proposal is a differently colored cube.</p>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">3D-0</span></span>
+                                </div>
+                            </div>
+                            
+                            <div id="question-3D-0" class="offset-1 col-11 pt-4 row">
+                                <div id="volume-10" class="volume-chart col-lg-8 col-md-12" scale="1500">
+                                    <p>Drag this chart with your mouse or finger to reveal the name of the hidden axis. In general, you will need to drag these 3D charts to get a sense of them.</p>
+                                </div>
+                                <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>What is the name of the hidden axis? (Hint: it is not x, y, or z.)</p>
+                                        <div class="col-12">
+                                            <input type="text" name="q_question-3D-0" id="q_question-3D-0_option_one" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row question-choice-container col-12" >
+                            <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                <span>Question: <span class="goal-sm">3D-1</span></span>
+                            </div>
+                            <div id="question-3D-1" class="offset-1 col-11 pt-4 row">
+                                <div id="volume-2" class="volume-chart col-lg-8 col-md-12">
+                                    <p>This chart shows two groups ("A" and "B") and one proposal (<span class="font-weight-bold" style="color : #1f77b4;">one</span>). Group "A" has an outcome of 20 for the proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> and group "B" has an outcome of 10 for the proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span>. This is the same data as <a href="#area-3">stacked-1</a>.</p>
+                                    <p>Try dragging the plot to see what it looks like at different angles.</p>
+                                </div>
+                                <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the groups shown in the chart has lowest outcome for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span>?</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-1" id="q_question-3D-1_option_one" value="A" required="">
+                                            <label><span class="font-weight-bold">A</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-1" id="q_question-3D-1_option_two" value="B" required="">
+                                            <label><span class="font-weight-bold">B</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-1" id="q_question-3D-1_option_three" value="C" required="">
+                                            <label><span class="font-weight-bold">C</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-1" id="q_question-3D-1_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">3D-2</span></span>
+                                </div>
+                            </div>
+                            <div id="question-3D-2" class="offset-1 col-11 pt-4 row">
+                                <div id="volume-3" class="volume-chart col-lg-8 col-md-12">
+                                    <p>This chart shows two groups ("A" and "B") and two proposals (<span class="font-weight-bold" style="color : #1f77b4;">one</span> and <span class="font-weight-bold" style="color : #ff7f0e;">two</span>). Group "A" has an outcome of 20 for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> and and outcome of 0 for <span class="font-weight-bold" style="color : #ff7f0e;">two</span>. Group "B" has an outcome of 0 for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> and an outcome of 10 for proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span>.</p>
+                                    <p>If a group has an outcome of zero for a proposal it won't show up in the chart (e.g. <span class="font-weight-bold" style="color : #1f77b4;">one</span> for group "B"). This is the same data as <a href="#area-3">stacked-2</a>.</p>
+                                </div>
+                                <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart has the lowest outcome for group "B"?</p>
+                                        <p>(Hint: find the proposal that takes up the least length on the axis labeled "B".)</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-2" id="q_question-3D-2_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-2" id="q_question-3D-2_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-2" id="q_question-3D-2_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-2" id="q_question-3D-2_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">3D-3</span></span>
+                                </div>
+                            </div>
+                            <div id="question-3D-3" class="offset-1 col-11 pt-4 row">
+                                <div id="volume-4" class="volume-chart col-lg-8 col-md-12">
+                                    <p>This is like <a href="#volume-3">3D-2</a>, but now each group also has an outcome of 5 for the other proposal. This is the same data as <a href="#area-4">stacked-3</a>.</p>
+                                </div>
+                                 <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart has the lowest outcome for group "A"?</p>
+                                        <p>(Hint: find the proposal that takes up the least length on the axis labeled "A".)</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-3" id="q_question-3D-3_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-3" id="q_question-3D-3_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-3" id="q_question-3D-3_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-3" id="q_question-3D-3_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">3D-4</span></span>
+                                </div>
+                            </div>
+                            <div id="question-3D-4" class="offset-1 col-11 pt-4 row">
+                                <div id="volume-5" class="volume-chart col-lg-8 col-md-12">
+                                    <p>This is like <a href="#volume-3">3D-2</a> but now the proportions of the groups have changed. Group "A" is now twice as big as group "B", occupying 66% of the total as opposed to 50% in <a href="#volume-3">3D-2</a>. This is the same data as <a href="#area-5">stacked-4</a>.</p>
+                                </div>
+                                 <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which is the largest group?</p>
+                                        <p>(Hint: it is hard to tell proportion from 3D charts alone. In these cases you may have to resort to reading the text.)</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-4" id="q_question-3D-4_option_one" value="A" required="">
+                                            <label><span class="font-weight-bold">A</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-4" id="q_question-3D-4_option_two" value="B" required="">
+                                            <label><span class="font-weight-bold" >B</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-4" id="q_question-3D-4_option_three" value="C" required="">
+                                            <label><span class="font-weight-bold" >C</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-4" id="q_question-3D-4_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mt-4 mb-2 font-weight-bold">3D Bar Charts: Volume</div>
+                            <p>One difference between stacked bar charts and 3D bar charts is how they show proposals.</p>
+                            <p>In stacked bar charts proposals (colored bars) take up <strong>area</strong> because there are only two axes (proportion by outcome) but in 3D bar charts proposals (colored cubes) take up <strong>volume</strong> because there are potentially three axes (for up to three groups).</p>
+                            <div class="row">
+                                <div id="volume-11" class="volume-chart col-lg-6 col-md-12">
+                                        <p>In the example below, groups "A," "B," and "C" all have an outcome of 100 for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> and an outcome of 10 for proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span>. Thus proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> has a larger <strong>volume</strong>.</p>
+                                </div>
+                                <div id="volume-12" class="volume-chart col-lg-6 col-md-12">
+                                        <p>In the example below, groups "A" and "B" have an outcome of only 1 for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> while "C" still has an outcome of 100. All groups still have an an outcome of 10 for proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span>. Thus proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span> has a larger <strong>volume</strong>. Even though proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> is <em>longer</em>, it has less total space inside than  proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span>; it has a smaller volume.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">3D-5</span></span>
+                                </div>
+                            </div>
+                            <div id="question-3D-5" class="offset-1 col-11 pt-4 row">
+                                <div id="volume-6" class="volume-chart col-lg-8 col-md-12">
+                                    <p>This is a combination of examples <a href="#volume-4">3D-3</a> and <a href="#volume-5">3D-4</a>. Notice how the sizes of the 3D bars change based on the change in proportion of the groups. This is the same data as <a href="#area-6">stacked-5</a>.</p>
+                                </div>
+                                 <div class="col-lg-3 col-md-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart takes up the largest total <strong>volume</strong>?</p>
+                                        <p>(Hint: in <a href="#area-6">stacked 5</a> we asked about the <em>area</em> of proposals but here we are asking about their <em>volume</em>. These are not <em>necessarily</em> the same thing.)</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-5" id="q_question-3D-5_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-5" id="q_question-3D-5_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-5" id="q_question-3D-5_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-5" id="q_question-3D-5_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div>
+                            <div class="mt-4 mb-2 font-weight-bold">3D Bar Charts: Different Sized Groups</div>
+                            <p>One thing to note about 3D bar charts is how they change when the groups are not of an equal size.</p>
+                            <p>When groups sizes are different, the axes of the 3D Bar Charts are scaled in proportion to the size of the group (<em>logarithmically</em> to be specific). This makes the differences between the proposals seem relatively minor even if the outcomes for the groups are quite different.</p>
+                            <div class="row">
+                                <div id="volume-13" class="volume-chart col-lg-6 col-md-12">
+                                        <p>In the example below, the groups are of equal size. Groups "A" and "B" have an outcome of 100 and group "C" has an outcome of 1 for proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span>. Then groups "A" and "B" have an outcome of 1 and group "C" has an outcome of 101 for proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span>. Thus proposal <span class="font-weight-bold" style="color : #1f77b4;">one</span> has a larger <strong>volume</strong>.</p>
+                                </div>
+                                <div id="volume-14" class="volume-chart col-lg-6 col-md-12">
+                                        <p>This is the same as the adjacent example but here the groups are not of equal size; group "C" is of size 2 while groups "A" and "B" are of size 1. Thus proposal <span class="font-weight-bold" style="color : #ff7f0e;">two</span> has a larger <strong>volume</strong>. Notice how the scales have changed based on the change in group size!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="row question-choice-container col-12" >
+                                <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                    <span>Question: <span class="goal-sm">3D-6</span></span>
+                                </div>
+                            </div>
+                            <div id="question-3D-6" class="offset-1 col-11 pt-4 row">
+                                <div class="row col-12">
+                                    
+                                    <div class="col-md-12 col-lg-4 ">
+                                        <div>
+                                            <p>In this scenario, there are 3 groups:</p>
+                                            <ul>
+                                                <li>group "A" with <strong>30</strong> people in it, </li>
+                                                <li>group "B" with <strong>10</strong> people in it, </li>
+                                                <li>and group "C" with <strong>20</strong> people in it.</li>
+                                            </ul>
+                                            <p>There are 3 proposals.</p>
+                                            <ul>
+                                                <li>proposal <span class="font-weight-bold" style="color : #1f77b4">one</span> with an outcome of 1000 for group "A", 1000 for group "B", and 1000 for group "C".</li>
+                                                <li>proposal <span class="font-weight-bold" style="color : #ff7f0e">two</span> with an outcome of 1 for group "A", 1 for group "B", and 1 for group "C".</li>
+                                                <li>proposal <span class="font-weight-bold" style="color : #2ca02c">three</span> with an outcome of 1 for group "A", 1 for group "B", and 10000 for group "C".</li>
+                                            </ul>
+                                            <p>This is the same data as <a href="#area-9">stacked 6</a>.</p>
+                                        </div>
+                                    </div>
+                                    <div id="volume-9" class="volume-chart col-md-12 col-lg-8">
+                                    </div>
+                                </div>
+                                 <div class="col-12 row">
+                                    <div class="col-lg-12 pt-5">
+                                        <p>Which of the proposals shown in the chart takes up the largest total <strong>volume</strong>?</p>
+                                        <p>(Hint: in <a href="#area-9">stacked 6</a> we asked about the <em>area</em> of proposals but here we are asking about their <em>volume</em>. These are not <em>necessarily</em> the same thing.)</p>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-6" id="q_question-3D-6_option_one" value="one" required="">
+                                            <label><span class="font-weight-bold" style="color : #1f77b4;">one</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-6" id="q_question-3D-6_option_two" value="two" required="">
+                                            <label><span class="font-weight-bold" style="color : #ff7f0e;">two</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-6" id="q_question-3D-6_option_three" value="three" required="">
+                                            <label><span class="font-weight-bold" style="color : #2ca02c;">three</span></label>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="radio" class="qualification-input" name="q_question-3D-6" id="q_question-3D-6_option_none" value="none" required="">
+                                            <label><span class="font-weight-bold">none</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-4 offset-4 text-center" id="qualificationButtonContainer">
+                                <p>Be careful! If you don't pass, this will automatically submit the HIT.</p>
+                                <input id="qualificationButton" type="button" value="Check answers">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="surveyHeading">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" id="surveyButton" type="button" disabled data-toggle="collapse" data-target="#surveyInput" aria-expanded="true" aria-controls="surveyInput">
+                            Survey
+                        </button>
+                    </h5>
+                </div>
+                <div class="collapse in" id="surveyInput" aria-disabled="true" aria-labelledby="surveyHeading" data-parent="#hitinfo">
+                    <div class="card-body">
+
+                            <div id="task-description" class="mt-4">
+                                <span class="mb-2 font-weight-bold">TASK DESCRIPTION:</span>
+                            </div>
+
+                            <div class="mt-4 mb-2 font-weight-bold">SCENARIO:</div>
+
+                            <p>Your local <strong>health department</strong> is looking for advice on a project.</p>
+
+                            <p>To figure out what to do, the health department <em>has researched how the proposals will affect different groups</em>. We won't get into the specifics of the proposals, but none is perfect; some groups prefer some proposals over others.</p>
+
+                            <p><span class="badge badge-warning">TIP</span> If you find yourself stuck between different proposals, please go with your gut/intuition.</p>
+                            <p><span class="badge badge-warning">TIP</span> Click and drag to view the 3D charts from different angles.</p>
+
+                            <div id="question-template-container"></div>
+
+                           <div class="question">
+                                <div class="row question-choice-container col-12" >
+                                    <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                        <span>Scenario: <span class="goal-sm">Wait Times</span></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="question-1" class="question-data wait-times offset-1 col-11 pt-4">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="question">
+                                <div class="row question-choice-container col-12" >
+                                    <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                        <span>Scenario: <span class="goal-sm">Life Expectancy</span></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="question-2" class="question-data life-expectancy offset-1 col-11 pt-4">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="question">
+                                <div class="row question-choice-container col-12" >
+                                    <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                        <span>Scenario: <span class="goal-sm">Medical Costs</span></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="question-3" class="question-data medical-costs offset-1 col-11 pt-4">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="question">
+                                <div class="row question-choice-container col-12" >
+                                    <div class="row col-12 border pt-1 pb-1 mb-1 ml-2 border-warning" style="background-color:#eee">
+                                        <span>Scenario: <span class="goal-sm">Travel Times</span></span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div id="question-4" class="question-data travel-times offset-1 col-11 pt-4">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+
+
+            <!-- OPTIONAL FEEDBACK -->
+            <div class="row mt-5">
+                <div class="col-8 offset-2 col-lg-6 offset-lg-3">
+                    <p>(Optional) Please let us know if anything was unclear, if you experienced any issues, or if you have any other feedback for us.</p>
+                    <textarea id="feedback" name="feedback" rows=3></textarea>
+                </div>
+            </div>
+
+            <!-- SUBMIT BUTTON --> 
+            <div class="row mt-5">
+                <div class="col-2 offset-5">
+                    <input id="submitButton" onclick="getnext()" type="submit" value="Submit">
+                </div>
+            </div>
+        </form>
+        <script>turkSetAssignmentID();</script>
+        <!-- MTURK INPUT END -->        
+    </div>
+
+    
+</div>
+<!-- HIT END -->

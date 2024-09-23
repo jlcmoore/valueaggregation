@@ -1,0 +1,42 @@
+# This file outlines a job for the AI2 beaker machines which downloads this 
+# repository and runs the command in `tasks[0]['arguments']`. `run_model_experiment.py`
+# uses this file as a template.
+version: v2
+budget: ai2/mosaic
+tasks:
+  - name: main
+    image:
+      beaker: ai2/conda
+    command: [bash, /gantry/entrypoint.sh]
+    arguments: [python, experiments/intuition/model_experiment.py, --output_directory, /results,
+     --samples, 1, --endpoint, completion, --model, claude-2, --anthropic,
+    "experiments/intuition/data/scenarios/old/maximize=True_num-agents=3_belief-steps=3_belief-range=.1,.99_action-steps=3_action-range=1,101_action-function=linear_num-scenarios=3_sample-size=500_first_1.csv"]
+    envVars:
+      - name: GANTRY_VERSION
+        value: 0.18.0
+      - name: GITHUB_REPO
+        value: jlcmoore/moral_parliament
+      - name: GIT_REF # This is the commit
+        value: HEAD
+      - name: GITHUB_TOKEN
+        secret: GITHUB_TOKEN
+      - name: PYTHON_VERSION
+        value: "3.10"
+      - name: OPENAI_API_KEY
+        secret: OPENAI_API_KEY
+      - name: ANTHROPIC_API_KEY
+        secret: ANTHROPIC_API_KEY
+    datasets:
+      - mountPath: /gantry
+        source:
+          beaker: 01H911SD0GZS4H4124WNF0GTAW
+      - mountPath: /net/nfs.cirrascale
+        source:
+          hostPath: /net/nfs.cirrascale
+    result:
+      path: /results
+    context:
+      priority: normal
+    constraints:
+      cluster:
+        - ai2/mosaic-cirrascale

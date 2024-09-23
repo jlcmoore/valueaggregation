@@ -1,0 +1,12 @@
+*.pyc
+*.ipynb_checkpoints
+env/
+env-parliament/
+env-aggregation/
+*__pycache__*
+external_data/
+*mturk.html
+*.DS_Store
+src/value_aggregation.egg-info/ 
+*.gantry
+# Only avoiding the above for now

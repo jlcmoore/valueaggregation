@@ -1,0 +1,171 @@
+<html lang="en">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+
+<!-- MTURK JS -->
+<script data-external="1" src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+<!-- <script src="https://assets.crowd.aws/crowd-html-elements.js"></script> -->
+
+<!-- BOOTSTRAP CSS -->
+<link data-external="1" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+
+<!-- HITPUB CSS -->
+<link data-external="1" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+<link rel="stylesheet" id="hitpub_css" href="hitpub.css">
+
+<!-- LIGHTBOX CSS -->
+<link data-external="1" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+
+<!-- BOOSTRAP JS -->
+<script data-external="1" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script data-external="1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script data-external="1" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- HITPUB JS -->
+<script src="timeme.js"></script>
+
+<!--  User scripts -->
+
+<!-- CHART JS -->
+<script data-external="1" src="https://unpkg.com/d3-3d@0.2.0/build/d3-3d.min.js"></script>
+<script data-external="1" src="https://d3js.org/d3.v6.min.js"></script>
+<script src="graphs.js"></script>
+
+
+<!-- The main functions -->
+<script type="application/json" id="qualification_answers" src="qualification_answers.json"></script>
+<script type="application/json" id="variables" src="variables.json"></script>
+<script src="main.js"></script> 
+
+<!-- LIGHTBOX JS -->
+<script data-external="1" src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
+
+<div class="container">
+<div class="col-md-8 col-offset-2">
+        <label for="file">Scenario file name</label>
+        <input type="text" id="file" name="file" size="50" value=""/>
+        <input type="button" id="load" value="load"/>
+        <input type="button" id="next" value="next"/>
+        <input type="button" id="last" value="last"/>
+        <input type="button" id="draw" value="draw"/>
+        <label for="jump">Jump to index:</label>
+        <input type="text" id="jump" value=""/>
+        <span>Index: <span id="index"></span></span>
+            <p>
+            <span>MEC: <span id="mec"></span></span>
+            <span>NBS: <span id="nbs"></span></span>
+            <span>Fehr: <span id="fehr"></span></span>
+            <span>Ans.: <span id="answer"></span></span></p>
+            <p>json:</p>
+            <pre id="json"></pre>
+    <script>
+        "use strict";
+        const games = [];
+        let index = 0;
+
+        $("#load").on("click", function(){
+            let file = $("#file").val();
+            const location = "http://localhost:8000/";
+
+            if (!file.startsWith(location)) {
+                file = location + file;
+            }
+
+            d3.csv(file, function(data) {
+                const mturk_output = 'WorkerId' in data;
+                let ans_prefix = '';
+                let input_prefix = '';
+
+                if (mturk_output) {
+                    ans_prefix = 'Answer.';
+                    input_prefix = 'Input.';
+                }
+                // TODO: should get the num scenarios from the file description
+                // ...
+                for (let i = 1; i <= 3; i++) {
+                    let json = bytesToJson(data[`${input_prefix}scenario_${i}_json`]);
+
+                    const results = {'json' : json, 
+                        'mec' : data[`${input_prefix}scenario_${i}_mec`], 
+                        'nbs' : data[`${input_prefix}scenario_${i}_nbs`],
+                        'fehr' : data[`${input_prefix}scenario_${i}_fehr`],
+                        'answer' : data[`${ans_prefix}q_question-${i}`],
+                    }
+                    games.push(results);
+                }
+            });
+            draw();
+        });
+
+        $("#next").on("click", next);
+
+        $("#last").on("click", last);
+
+        $("#draw").on("click", function(){
+            draw();
+        });
+
+        $(document).keydown(function(key){
+            if (key.which == 37) { // left
+                last();
+            } else if (key.which == 39) { //right
+                next();
+            }
+        });
+
+        function last() {
+            if (index - 1 < 0) {
+                index = games.length - 1;
+            } else{
+                index -= 1;
+            }
+            draw();
+        }
+
+        function next() {
+            if (index + 1 >= games.length) {
+                index = 0;
+            } else{
+                index += 1;
+            }
+            draw();
+        }
+
+        function draw() {
+            if (games.length > 0) {
+                const jump_val = parseInt($("#jump").val());
+                if (!isNaN(jump_val) && jump_val < games.length && jump_val >= 0) {
+                    index = jump_val;
+                    $("#jump").val("");
+                }
+                const data = games[index]['json'];
+                const width = 540;
+                const height = 300;
+                const color = get_color(data);
+                const volume = volume_chart(data, color, width, height);
+                const area = area_chart(data, color, width, height);
+
+                $("#graph").html("");
+                $("#graph").append($("<div>").attr("class", "col-md-6")
+                                            .append(volume))
+                            .append($("<div>").attr("class", "col-md-6")
+                                            .append(area));
+                $("#index").html(index);
+                $("#mec").html(games[index]['mec']);
+                $("#nbs").html(games[index]['nbs']);
+                $("#fehr").html(games[index]['fehr']);
+                $("#answer").html(games[index]['answer']);
+                $("#json").text(JSON.stringify(games[index]['json']));
+            }
+        }
+    </script>
+</div>
+<div class="row">
+    <div id="question">
+    </div>
+    <div id="graph" class="row">
+    </div>
+</div>
+</div>

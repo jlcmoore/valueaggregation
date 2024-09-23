@@ -1,0 +1,56 @@
+<html lang="en">
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+
+<!-- MTURK JS -->
+<script data-external="1" src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+<!-- <script src="https://assets.crowd.aws/crowd-html-elements.js"></script> -->
+
+<!-- BOOTSTRAP CSS -->
+<link data-external="1" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+
+<!-- HITPUB CSS -->
+<link data-external="1" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+<link rel="stylesheet" id="hitpub_css" href="hitpub.css">
+
+<!-- LIGHTBOX CSS -->
+<link data-external="1" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+
+$body$
+
+<!-- Change this input type depending on if this is for mturk variable input or pandoc  -->
+<!-- html characters used to escape dollar sign begin curly brace end curly brace
+so that pandoc doesn't process these but mturk does-->
+
+<input type="hidden" class="question-json" value='&#36;&#123;scenario_1_json&#125;' id="question-1-values" name="question-1-values">
+<input type="hidden" class="question-json" value='&#36;&#123;scenario_2_json&#125;' id="question-2-values" name="question-2-values">
+<input type="hidden" class="question-json" value='&#36;&#123;scenario_3_json&#125;' id="question-3-values" name="question-3-values">
+<input type="hidden" class="question-json" value='&#36;&#123;scenario_4_json&#125;' id="question-4-values" name="question-4-values">
+
+
+<!-- BOOSTRAP JS -->
+<script data-external="1" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script data-external="1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script data-external="1" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- HITPUB JS -->
+<script src="timeme.js"></script>
+
+<!--  User scripts -->
+
+<!-- CHART JS -->
+<script data-external="1" src="https://unpkg.com/d3-3d@0.2.0/build/d3-3d.min.js"></script>
+<script data-external="1" src="https://d3js.org/d3.v6.min.js"></script>
+<script src="graphs.js"></script>
+
+
+<!-- The main functions -->
+<script type="application/json" id="qualification_answers" src="qualification_answers.json"></script>
+<script type="application/json" id="variables" src="variables.json"></script>
+<script src="main.js" type="module"></script> 
+
+<!-- LIGHTBOX JS -->
+<script data-external="1" src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox-plus-jquery.min.js"></script>
+</html>
