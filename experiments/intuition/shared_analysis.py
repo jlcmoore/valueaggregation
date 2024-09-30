@@ -763,9 +763,9 @@ def space_last_fig_add_titles(fig, axes):
     axes[-1].set_position([pos_last.x0 + extra_space, pos_last.y0, pos_last.width, pos_last.height])
     
     
-    top_row_suptitle = fig.text(0.43, 1, 'default', ha='center', fontsize=14)
+    top_row_suptitle = fig.text(0.43, 1, 'Focused', ha='center', fontsize=14)
     
-    top_row_suptitle = fig.text(.915, 1, 'random', ha='center', fontsize=14)
+    top_row_suptitle = fig.text(.915, 1, 'Random', ha='center', fontsize=14)
 
 def confidence_interval_95(data):
     bootstrap = scipy.stats.bootstrap((data,), np.mean)
