@@ -1,0 +1,18 @@
+*.pyc
+*.cache
+*.mplcache
+*.ipynb_checkpoints
+env/
+env-parliament/
+env-aggregation/
+node_modules/
+*__pycache__*
+external_data/
+*mturk.html
+*jatos.html
+*.DS_Store
+src/value_aggregation.egg-info/ 
+*.gantry
+# Only avoiding the above for now
+experiments/intuition/renv/
+experiments/intuition/data/analysis/brms_fit*.rds

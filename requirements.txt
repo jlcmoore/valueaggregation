@@ -1,0 +1,16 @@
+ipykernel==6.21.2
+jupyter_client==8.0.3
+jupyter_core==5.2.0
+numpy==1.24.1
+pandas==2.0.2
+pygambit
+scipy==1.10.1
+matplotlib
+requests
+openai
+ipywidgets
+tenacity
+tqdm
+boto3
+jinja2
+litellm

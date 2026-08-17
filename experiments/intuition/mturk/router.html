@@ -1,0 +1,75 @@
+<html lang="en">
+  <!doctype html>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <!-- JATOS API -->
+  <script src="jatos.js"></script>
+  <script src="conditions.js"></script>
+
+  <body>
+    <div class="container">
+      <p>Routing you to the next task...</p>
+    </div>
+
+    <script>
+      // Router component for balancing participants between multiple task components.
+      // Assumes this router is at component position 1.
+      // The conditions and their corresponding component positions are defined in conditions.js.
+
+      jatos.onLoad(function () {
+        // The canonical list of conditions is loaded from conditions.js
+        const conditions = window.JATOS_CONDITIONS;
+
+        function startComponent(condition, position) {
+          console.log(
+            "Router: Starting component at position",
+            position,
+            "with condition:",
+            condition,
+          );
+          // The `jatos.startComponentByPos` function takes the component position and
+          // an object of parameters to pass to that component's session.
+          jatos.startComponentByPos(position, {
+            assignedCondition: `${condition.dependent_measure}-${condition.chart_type}`,
+            dependent_measure: condition.dependent_measure,
+            chart_type: condition.chart_type,
+            conditions: conditions,
+          });
+        }
+
+        function assignBalanced() {
+          // Use an atomic counter in Batch Session and cycle through conditions.
+          // This avoids manual get/set races and works with older JATOS APIs.
+          jatos.batchSession.add(
+            "router_counter",
+            1,
+            function (value) {
+              const n = Number(value) || 0;
+              const conditionIndex = n % conditions.length;
+              const chosenCondition = conditions[conditionIndex];
+              const componentPosition = conditionIndex + 2; // Starts from position 2
+
+              startComponent(chosenCondition, componentPosition);
+            },
+            function () {
+              // If the batch session is not available for some reason,
+              // fall back to a simple random assignment so participants
+              // are not stuck on the router.
+              const randomIndex = Math.floor(Math.random() * conditions.length);
+              const chosenCondition = conditions[randomIndex];
+              const componentPosition = randomIndex + 2;
+
+              startComponent(chosenCondition, componentPosition);
+            },
+          );
+        }
+
+        assignBalanced();
+      });
+    </script>
+  </body>
+</html>
